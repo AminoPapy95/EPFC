@@ -1,0 +1,39 @@
+<script>
+
+/* 
+* programme qui calcule une prime en fonction de ses ventes
+* si entre 0-500, alors 2%
+* si entre 501-1000, alors 5%
+* si plus de 1000, alors 10%
+* author H.Amine < aminehoussane@gmail.com>
+* version 1.0
+*/
+// déclaration de variable
+
+var vente;
+var prime1=2/100;
+var prime2=5/100;
+var prime3=10/100;
+var salaire;
+
+// lecture de données
+
+vente= parseFloat(prompt('Pour combien avez vous vendu ?'));
+
+// traitement des donneés
+if (vente>0 && vente<500){
+	salaire=vente+(vente*prime1);
+} else { 
+	if (vente>501 && vente<1000){
+	salaire=vente+(vente*prime2);
+}else {
+	if (vente>=1000){
+	salaire=vente+(vente*prime3);
+}
+}
+}
+// affichage des résultas
+
+document.write('<p>Votre salaire est de '+salaire+' €.</p>')
+</script>
+bonjoursale n    e
