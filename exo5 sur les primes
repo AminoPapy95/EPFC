@@ -1,0 +1,30 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+</head>
+<body>
+<script> 
+/*
+ * Programme qui calcule et affiche le carré
+ * d'un nombre donnée par l'utilisateur
+ * 
+ * @author H. Amine < aminehoussane@gmail.com>
+ * @version 1.0
+ */
+ 
+// déclaration de variabke
+var salaire, vente;
+var prime=10/100;
+// lecture de données 
+vente=parseFloat(prompt('Pour combien avez-vous vendu ?'));
+// traitement de données
+if ( vente>1000) {
+salaire= vente +(vente*prime);
+ } else { 
+salaire=vente; 
+ }
+// affiche des résulats
+document.write('<p>Votre salaire est de  '+salaire+'  €</p>')
+</script>
+</body>
+</html>
