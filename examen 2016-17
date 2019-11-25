@@ -1,0 +1,114 @@
+<script>
+
+    /*programme qui calcule et affiche le montant minerval
+    *user entre clavier num formation
+    *hors eu ou non et si membre personnel
+    *si désier afficher détail calcul
+    */
+
+    // déclaration de variables
+    const duree_Access = 40,
+        duree_Excel = 40,
+        duree_Excel_A = 60,
+        duree_Joomla = 80;
+    var formation_Acess = "Acess",
+        formation_Excel = "Excel",
+        formation_Excel_A = "Excel Avancé",
+        formation_Joomla = "Joomla";
+
+    var code,
+        duree,
+        formation,
+        prix_total,
+        membre_personnel = false,
+        ressortisant_HEU = false,
+        detail_calcul = false;
+
+    const participation = 25,
+        frais_inscription = 0.35,
+        frais_Hors_EU = 0.75;
+
+    // traitement des données
+
+    do {
+        do {
+            code = parseInt(prompt('Entrez votre code formation.'));
+
+        } while (isNaN(code) || code < 0);
+
+
+
+
+        switch (code) {
+            case (1050):
+                formation = formation_Acess;
+                duree = duree_Access;
+                // document.write(Formation'+formation+',tarif:'+prix_total');
+                break;
+
+            case (1060):
+                formation = formation_Excel;
+                duree = duree_Excel;
+
+                break;
+
+            case (1065):
+                formation = formation_Excel_A;
+                duree = duree_Excel_A;
+
+                break;
+
+            case (3040):
+                formation = formation_Joomla;
+                duree = duree_Joomla
+            default:
+                alert('ERREUR mauvais code');
+        }
+
+        //confirmer pour les tarrifs spéciaux1
+        ressortisant_HEU = confirm('Etes vous un ressortissant Hors EU?');
+        membre_personnel = (confirm('Etes vous un membre du personnel ?'));
+
+        if (!ressortisant_HEU) {
+            prix_total = (duree * frais_inscription) + (duree * frais_Hors_EU) + participation;
+        } else {
+            prix_total = (duree * frais_inscription) + participation;
+        }
+
+
+
+        if (!membre_personnel) {
+            prix_total = (duree * frais_inscription);
+        } else {
+            prix_total = (duree * frais_inscription) + participation;
+        }
+        // affichage des résulats
+        detail_calcul = (confirm('Voulez  vous le detail du calcul?'));
+
+        if (detail_calcul) {
+            document.write('<p>Formation:' + formation + '</p>');
+            document.write('<p>Tariff:' + prix_total + '</p>');
+            document.write('<p>- Particaption:' + participation + '</p>');
+            document.write('<p>-inscription:' + duree * frais_inscription + '</p>');
+            document.write('<p>-FraisHors EU:' + frais_Hors_EU * duree + '</p>');
+        } else {
+            document.write('<p>Formation:' + formation + '</p>');
+            document.write('<p>Tariff:' + prix_total + '</p>');
+        }
+
+
+
+
+    } while (confirm('Voulez vous recommencez ?'));
+
+
+
+
+
+
+
+
+
+
+
+</script>
