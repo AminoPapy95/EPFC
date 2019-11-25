@@ -1,0 +1,70 @@
+<script>
+    /* attention pas bcp des notes dont judge me
+    *Une séance de coaching coûte 10 
+    *réduction non cumulables 
+    *(par quantité ou par code promotionnel)
+    *A partir de 5 séances, on bénéficie d’une réduction de 15% sur le montant total
+    *%. Le programme lui demande ensuite s’il désire utiliser un code promo. Si l’utilisateur refuse, le programme calcule le montant total en appliquant une éventuelle réduction de 15%.
+    */
+
+    var nbr_seance, code_promo, prix_total, code_reduc;
+    const prix_seance = 10;
+    const reduc_seance = 0.15;
+    const seuil_reduc_seance = 5;
+    var reductionCodePromo = false, simpleReducSeance = false;
+    do {
+        do {
+            nbr_seance = parseInt(prompt("Combien de séance voulez vous prendre ?"));
+            //document.write('<p> Votre réservation<br>*' + nbr_seance + 'séances</p>');
+        } while (isNaN(nbr_seance || nbr_seance < 0));
+
+        if (nbr_seance >= seuil_reduc_seance) {
+            simpleReducSeance = confirm("Voulez vous bénéficiez d'une réduction de 15%?")
+        }
+        reductionCodePromo = confirm("Avez vous un code promo ?");
+        if (reductionCodePromo) {
+            do {
+                code_promo = prompt('Entrez votre code promo svp');
+            } while (!isNaN(code_promo));
+        }
+            switch (code_promo) {
+                case "2SpringAs1":
+                    code_reduc = 0.15;
+                    prix_total = (nbr_seance * prix_seance) - ((nbr_seance * prix_seance) * code_reduc);
+                    break;
+                case "Winter4Life":
+                    code_reduc = 0.20;
+                    prix_total = (nbr_seance * prix_seance) - ((nbr_seance * prix_seance) * code_reduc);
+                    break;
+                case "i8Summer":
+                    code_reduc = 0.25;
+                    prix_total = (nbr_seance * prix_seance) - ((nbr_seance * prix_seance) * code_reduc);
+                    break;
+                case "Autumn3":
+                    code_reduc = 0.30;
+                    prix_total = (nbr_seance * prix_seance) - ((nbr_seance * prix_seance) * code_reduc);
+                    break;
+                default:
+                    alert("Code INVALIDE");
+                    code_reduc = 0
+                    prix_total = nbr_seance * prix_seance
+            }
+        
+        // affichage des résulats
+        document.write('<p> Votre réservation<br>*' + nbr_seance + 'séances</p>');
+        if (simpleReducSeance) {
+            document.write('<p>=> réduction de -15%')
+            document.write('<p> Total=' + prix_total + '');
+        } else {
+            document.write('<p>=> Code promo de(' + (reductionCodePromo * 100) + '%)</p>')
+            //  document.write('<p>=> Code promo (' + (reductionCode * 100) + '%)</p>')
+            document.write('<p> Total=' + prix_total + '');
+
+        }
+
+    } while (confirm('Voulez vous recomencer ?'));
+
+
+
+
+// une erreur dans le code à refaire
