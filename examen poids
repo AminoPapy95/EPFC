@@ -1,0 +1,69 @@
+<script>
+    /*programme qui calcule et 
+    *affiche le poids idéal théorique d'un internaute
+    *L'utilisateur entrera un par un au clavier son prénom,
+    * sa taille, son âge et sa morphologie
+    */
+
+    var age, poids, taille, calcul_poids, poids_ideal, nom;
+    const type_poids_normale = "normale",
+        type_poids_fine = "fine",
+        type_poids_large = "large";
+
+
+    do {
+        do {
+            nom = prompt('ton blase bg');
+        } while (nom == "");
+        do {
+            age = parseInt(prompt('Veuillez entre votre age'));
+        } while (isNaN(age));
+        do {
+            poids = parseFloat(prompt('Veuillez entrez votre poids'));
+        } while (isNaN(poids));
+        do {
+            taille = parseFloat(prompt('Veuillez entrez votre poids'));
+        } while (isNaN(taille));
+
+        point_ideal = prompt('quel est le type de poids souhaitez?');
+
+        switch (poids_ideal) {
+
+            case ("normale"):
+                poids_ideal = type_poids_normale;
+                calcul_poids = ((taille - 100 + age / 10) * 0.9);
+                break;
+
+            case ("fine"):
+                poids_ideal = type_poids_fine;
+                calcul_poids = ((taille - 100 + age / 10) * 0.9 * 0.9);
+                break;
+
+            case ("large"):
+                poids_ideal = type_poids_large;
+                calcul_poids = ((taille - 100 + age / 10) * 0.9 * 1.1);
+                break;
+        }
+
+        if (point_ideal == "normale") {
+            document.write('<p>' + nom + ',votre poids idéal est ' + calcul_poids + '</p>');
+            document.write('<p>Tout vas bien bg</p>');
+        } else if (point_ideal == "fine") {
+            document.write('<p>' + nom + ',votre poids idéal est ' + calcul_poids + '</p>');
+            document.write('<p>tu es aussi mince qu\'un mikado</p>');
+        } else {
+            document.write('<p>' + nom + ',votre poids idéal est ' + calcul_poids + '</p>');
+            document.write('<p>Vous etes en surpoids</p>');
+        }
+
+
+
+
+    } while (confirm('voulez vous recommencez?'));
+
+
+
+
+
+
+</script>
