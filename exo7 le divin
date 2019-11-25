@@ -1,0 +1,26 @@
+<script>
+
+/* 
+* programme qui se prend pour un divn, il faut trouver le chiffere
+* le programme génère un nombre entre 1 et 10
+* 
+* author H.Amine < aminehoussane@gmail.com>
+* version 1.0
+*/
+// déclaration de variable
+var nombreUser;
+var nombreprogramme=Math.floor(Math.random() * 11);
+
+// lecture de donneés
+
+nombreUser=parseFloat(prompt('Je pense à un nombre entre 0 et 10! Seriez vous capable de le trouver :) ? '));
+
+//traitement des données
+if (nombreUser==nombreprogramme) {
+	document.write('<p> je pensais à '+nombreprogramme+' </p>');
+	document.write('<p> votre nombre était le '+nombreUser+' </p>');
+	document.write('<p> Félécitations </p>');
+}  else {
+	document.write('Perdu! je pensaix aux '+nombreprogramme+' </p>')
+}
+</script>
