@@ -1,0 +1,43 @@
+<script>
+
+    /* exercice sur la météo des pluis
+    * faire un programme qui calcule et affiche 
+    * la  variation du niveau d'acidité de l'eau entre les diff jours
+    * user entrera les donées sur le ph du jour et veille
+    * si il le désier afficher le type de ph
+    * le programme doit pouvoir se relancer et ne pourra s'arreter que lorsque l'user le veut
+    */
+
+    // mettre les variables
+    var PH_jour, PH_veille, PH_type, taux_PH;
+    var type_affiche
+    // traitement des données
+    do {
+
+        do {
+            PH_jour = parseFloat(prompt('Quel est le ph d\'auj?'))
+        } while (isNaN(PH_jour || PH_jour >= 0 || PH_jour <= 14));
+
+        do {
+            PH_veille = parseFloat(prompt('Quel est le ph d\'auj?'))
+        } while (isNaN(PH_veille || PH_veille >= 0 || PH_veille <= 14));
+
+
+        // calcul variation
+        taux_PH = Math.round((PH_veille - PH_jour) / PH_jour * 100);
+
+        // affichage des résultats
+
+        type_affiche = confirm('Voulez  vous le type ?');
+        if (PH_jour >= 0 && PH_jour <= 5) {
+            document.write('<p> type=acide');
+            document.write('<p> Le ph d\'auj est de ' + PH_jour + ' </p>');
+        } else if (PH_jour >= 6 && PH_jour <= 8) {
+            document.write('<p> type=neutre </p>');
+            document.write('<p> Le ph d\'auj est de ' + PH_veille + ' </p>');
+        } else if (PH_jour >= 9 && PH_jour <= 14) {
+            document.write('<p> type=alcalin');
+            document.write('<p> le taux de variation est de ' + taux_PH + '</p>');
+        }
+    } while (confirm = "Voulez vous recommencer ?");
+</script>
