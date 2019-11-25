@@ -1,0 +1,94 @@
+<script>
+    /*
+    * programme qui permet de calculer le prix des locations
+    * locations. L’utilisateur pourra choisir le costume,
+    * définir le nombre de jours de location, choisir l’option nettoyage 
+    * et afficher le prix total détaillé ou pas.
+    *l'utilisateur entre au clavier le code du costume choisi, le programme affiche le nom du costume et le prix de la location par jour
+    *L’utilisateur entre le nombre de jours de location, le programme demande si l’utilisateur désire l’option nettoyage. 
+    *. Si oui, le programme calcule et affiche le montant détaillé à payer pour le costume et le nettoyage
+    *
+    * @ author AHOUSSANE
+    * @ version 0.1
+    *
+    */
+
+    // déclaration des variables
+
+    var code_Costume, prix_Location, nb_Jour, total, costume, total_nettoyage;
+    var costume_3Pieces = "Costume 3 Pièces",
+        costume_Pirate = "Déguisement de pirate",
+        costume_Reine_Neiges = "Déguisement Reine des neiges";
+    var nettoyage = false;
+    const tarif_3PS = 85,
+        tarif_PIR = 70,
+        tarif_REI = 90,
+        tarif_nettoyage = 20;
+
+    // lecture des données
+
+    do {
+        do {
+            code_Costume = prompt('Entrez un code costume');
+        } while (code_Costume.length < 3);
+
+        do {
+            nb_Jour = prompt = parseInt(prompt('Pour combien de jour la location?'));
+            if (nb_Jour > 5) {
+
+                alert('Vous ne pouvez pas louer pour plus de 5 jours!');
+            }
+        } while (isNaN(nb_Jour) || nb_Jour > 5);
+
+        nettoyage = confirm('Voulez vous l\'option nettoyage ?');
+
+
+
+
+        switch (code_Costume) {
+
+            case ("3PS"):
+                costume = costume_3Pieces;
+                prix_Location = tarif_3PS;
+                break;
+
+            case ("PIR"):
+                costume = costume_Pirate;
+                prix_Location = tarif_PIR;
+                break;
+
+            case ("REI"):
+                costume = costume_Reine_Neiges;
+                prix_Location = tarif_REI;
+                break;
+
+            default:
+        }
+
+        //traitement des données
+
+        total = prix_Location * nb_Jour;
+
+        // affichage des résul
+
+        if (nettoyage) {
+            total_nettoyage = total + tarif_nettoyage;
+            document.write('<p>Total</p>');
+            document.write('<p> votre costume =' + costume + '</p>');
+            document.write('<p>' + prix_Location + ' * ' + nb_Jour + ' + ' + tarif_nettoyage + '= ' + total + '</p>');
+        } else {
+            document.write('<p> Total : ' + total + '</p>');
+            document.write('<p> votre costume =' + costume + '</p>');
+        }
+
+    } while (prompt('Voulez vous recommencez ?'));
+
+
+
+
+
+
+
+
+
+</script>
