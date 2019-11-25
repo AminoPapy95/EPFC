@@ -1,0 +1,127 @@
+!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Menu restaurant chez ichiraku</title>
+    <style>
+        table,
+        td {
+            border: 1px solid #333;
+        }
+
+        thead,
+        tfoot {
+            background-color: #333;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Le menu</h1>
+
+    <h2>Entrée</h2>
+    <ul>
+        <li><a href="menu/entree1.html">Entré 1</a></li>
+        <li>Entré 2</li>
+        <li>Entré 3</li>
+    </ul>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Nom du produit</th>
+                <th> Prix HT</th>
+                <th> Quantité</th>
+                <th> Prix TTC</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Souris</td>
+                <td>30€</td>
+                <td>2</td>
+                <td>72€</td>
+            </tr>
+            <tr>
+                <td>Clavier</td>
+                <td>10€</td>
+                <td>5</td>
+                <td>60€</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="2"></td>
+                <td>Total</td>
+                <td>110€</td>
+            </tr>
+            <tr>
+                <td colspan="2"></td>
+                <td>Total TTC</td>
+                <td>132€</td>
+            </tr>
+        </tfoot>
+    </table>
+
+
+
+
+
+
+
+    <table>
+        <thead>
+            <tr>
+                <td> Plat</td>
+                <td>Prix</td>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+
+            <td>Ramen naruto</td>
+            <td>6,50€</td>
+        </tr>
+        <tr>
+
+            <td>Ramen du chef </td>
+            <td> 7,80€</td>
+        </tr>
+        <tr>
+
+            <td>Maki mixte de konoha</td>
+            <td>13,50€</td>
+        </tr>
+        <tr>
+            <td colspan="2">Dessert</td>
+
+        </tr>
+        <tr>
+
+            <td> Dame blanche</td>
+            <td>5,20</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="2"><em>Tout les prix sont indiqués TTC</em></td>
+        </tr>
+    </tfoot>
+    </table>
+
+
+
+
+
+    <h2 id="plats-chauds">Plats chaud</h2>
+    <ul>
+        <li>Entré 1</li>
+        <li>Entré 2</li>
+        <li>Entré 3</li>
+    </ul>
+    <a href="index.html">Revenir à l'acceuil </a>
+</body>
+
+</html>
