@@ -1,0 +1,75 @@
+<script>
+    /*
+    * réaliser un programme qui permet de calculer le budget buffet d’un mariage
+    *l'utilisateur entre au clavier le nombre d’adultes et d’enfants
+    *Si oui, le programme affiche une facture détaillée
+    *
+    *
+    *
+    * @author A.HOUSSANE
+    * @version 0.1
+    *
+    */
+
+    // déclaration des variables
+
+    var nbAdultes,
+        nbEnfants,
+        total,
+        total_Adultes,
+        Total_Enfants,
+        total_Bulles,
+        nbBulles,
+        bulles = false,
+        details_fact = false;
+
+    const tariff_Adultes = 15,
+        tariff_Enfants = 10,
+        Bulles_Tariff = 50,// par tranche de 10 personne
+        Tranche_Bulles = 10;
+
+    // lecture des données
+    do {
+
+
+        do {
+            nbAdultes = parseInt(prompt('Combien d\'adultes?'));
+            if (nbAdultes < 10) {
+
+                alert('Vous devez réserver pour 10 personnes min!');
+            }
+        } while (isNaN(nbAdultes) || nbAdultes < 10);
+
+        do {
+            nbEnfants = parseInt(prompt('Combien d\'enfants?'));
+
+        } while (isNaN(nbEnfants) || nbEnfants < 0);
+
+        bulles = confirm('Voulez vous prendre les boissons à volonté ?');
+        details_fact=confirm('Voulez vous le détail de la facture ?');
+
+        //affichage des résultats
+
+        total_Adultes = nbAdultes * tariff_Adultes;
+        Total_Enfants = nbEnfants * tariff_Enfants;
+        nbBulles = Math.ceil(nbAdultes / Tranche_Bulles);
+        total_Bulles = nbBulles * Bulles_Tariff;
+        total = total_Adultes + Total_Enfants + total_Bulles;
+
+        // affichage des résultats
+
+        document.write('<p> Total:' + total_Adultes + '€ + ' + Total_Enfants + '€ + ' + total_Bulles + '€=' + total + '€</p> ');
+
+        if (details_fact) {
+            document.write('<p> facture Détaillé: </p>');
+            document.write('<p>-' + nbAdultes + ' adultes (' + total_Adultes + '€) </p>');
+            document.write('<p>-' + nbEnfants + ' enfants (' + Total_Enfants + '€) </p>');
+            if (bulles) {
+                document.write('<p>-' + nbBulles + ' bulles (' + total_Bulles + '€)</p>');
+
+            }
+        }
+
+
+    } while (confirm('Voulez vous recommencez?'));
+</script>
