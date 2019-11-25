@@ -1,0 +1,64 @@
+<script>
+    /*programme pour des concerts
+    * user entre code concert et qtité
+    *peut recomencer cette phase de sélection
+    * doit s'arreter si user le veut
+    *si il le désier afficher le détail montant ou ou seulement le total
+    */
+
+    //déclaration de variable
+
+    var Code_Concert, chanteur;
+    var tariff_100 = 26;
+    var tafiff_20 = 50;
+    var tariff_3 = 15;
+    var quantite;
+    var total_Commande;
+    var name_Concert_100 = "Garland Jeffrey";
+    var name_concert_20 = "Christophe";
+    var name_concert_3 = "Jambinai";
+    // traitement des données
+
+    do {
+        do {
+            Code_Concert = parseFloat(prompt('Entrez votre code concert svp'));
+            if (Code_Concert != 100 && Code_Concert != 20 && Code_Concert != 3) {
+                document.write('<p> Aucune séléction! </p>');
+            }
+        } while (confirm('Voulez vous refaire la séléction ?'));
+
+        quantite = parseFloat(prompt('Combien de ticket voulez vous ?'));
+
+        if (Code_Concert == 100) {
+            total_Commande = (tariff_100 * quantite);
+            document.write('<p> Total:' + total_Commande + '€</p>');
+        } else if (Code_Concert == 50) {
+            total_Commande = (tariff_20 * quantite);
+            document.write('<p> Total:' + total_Commande + '€</p>');
+        } else if (Code_Concert == 3) {
+            total_Commande = (tariff_3 * quantite);
+            document.write('<p> Total:' + total_Commande + '€</p>');
+        }
+        while (confirm('Voulez vous le détail de votre commande ?')) {
+            if (Code_Concert == 100) {
+                document.write('<p> Votre séléction : <br> -' + quantite + '*' + name_Concert_100 + '(' + tariff_100 + '€)<br> Total:' + total_Commande + '€</p>');
+            } else if (Code_Concert == 20) {
+                document.write('<p> Votre séléction : <br> -' + quantite + '*' + name_Concert_20 + '(' + tariff_20 + '€)<br> Total:' + total_Commande + '€</p>');
+            } else if (Code_Concert == 3) {
+                document.write('<p> Votre séléction : <br> -' + quantite + '*' + name_Concert_3 + '(' + tariff_3 + '€)<br> Total:' + total_Commande + '€</p>');
+            }
+        }
+
+
+    } while (confirm('Voulez vous recomencer ?'));
+
+
+
+
+
+
+
+
+
+
+</script>
